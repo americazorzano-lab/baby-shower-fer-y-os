@@ -1,0 +1,362 @@
+/* =====================================================
+   SISTEMA DE DISEÑO — BABY SHOWER WINNIE POOH
+   ===================================================== */
+
+/* ── Tokens ── */
+:root {
+  --honey:        #D4A017;
+  --honey-light:  #F5C842;
+  --honey-dark:   #B8860B;
+  --yellow-soft:  #F5E6A3;
+  --cream:        #FFF9F0;
+  --cream-dark:   #FFF3DC;
+  --beige:        #F0D9B5;
+  --brown-light:  #C4956A;
+  --brown:        #8B5E3C;
+  --brown-dark:   #5C3D1E;
+  --red-pooh:     #D44444;
+  --pink-soft:    #F4A6A0;
+  --white:        #FFFDF7;
+
+  --font-script:  'Dancing Script', cursive;
+  --font-display: 'Pacifico', cursive;
+  --font-body:    'Nunito', sans-serif;
+
+  --shadow-soft:  0 4px 20px rgba(180, 130, 50, 0.12);
+  --shadow-card:  0 8px 32px rgba(180, 130, 50, 0.18);
+  --shadow-btn:   0 6px 20px rgba(180, 130, 50, 0.30);
+
+  --radius:    20px;
+  --radius-sm: 12px;
+  --radius-xs:  8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--brown-dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── Wrapper principal ── */
+#root {
+  min-height: 100vh;
+}
+
+/* ── Tipografía ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-script);
+  line-height: 1.2;
+}
+
+/* ── Botones base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  outline: none;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 4px;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-honey {
+  background: linear-gradient(135deg, var(--honey) 0%, var(--honey-light) 100%);
+  color: var(--brown-dark);
+  box-shadow: 0 4px 14px rgba(212, 160, 23, 0.35);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-maps {
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(66, 133, 244, 0.30);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid var(--beige);
+}
+
+/* ── Etiqueta de título de sección ── */
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  color: var(--brown-dark);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--honey), var(--honey-light));
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--brown);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+/* ── Divisor de miel ── */
+.honey-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 4px 0 16px;
+  color: var(--honey);
+  font-size: 1.1rem;
+  letter-spacing: 6px;
+}
+
+/* ──────────────────────────────────────────
+   ANIMACIONES
+   ────────────────────────────────────────── */
+
+/* Aparecer */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.96); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Sobre/portada */
+@keyframes envelopePop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.06) rotate(1deg); }
+  60%  { transform: scale(0.92) rotate(-1deg); }
+  80%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes coverExit {
+  0%   { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.9) translateY(-30px); }
+}
+
+@keyframes invitationEnter {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Flap del sobre */
+@keyframes flapOpen {
+  0%   { transform: scaleY(1); }
+  100% { transform: scaleY(-1); }
+}
+
+/* Flotación suave */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Pulso suave */
+@keyframes softPulse {
+  0%, 100% { transform: scale(1);    opacity: 1;    }
+  50%       { transform: scale(1.04); opacity: 0.9; }
+}
+
+/* Brillo de miel */
+@keyframes honeyShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Abejitas — caminos flotantes */
+@keyframes beePath1 {
+  0%   { transform: translate(0px,   0px)  rotate(5deg); }
+  15%  { transform: translate(18px, -28px) rotate(0deg); }
+  30%  { transform: translate(36px, -10px) rotate(10deg); }
+  45%  { transform: translate(26px, -48px) rotate(-5deg); }
+  60%  { transform: translate(8px,  -65px) rotate(8deg); }
+  75%  { transform: translate(-8px, -42px) rotate(-3deg); }
+  90%  { transform: translate(4px,  -18px) rotate(6deg); }
+  100% { transform: translate(0px,   0px)  rotate(5deg); }
+}
+
+@keyframes beePath2 {
+  0%   { transform: translate(0px,   0px)  rotate(-5deg); }
+  20%  { transform: translate(-22px, -36px) rotate(-10deg); }
+  40%  { transform: translate(-42px, -18px) rotate(5deg); }
+  60%  { transform: translate(-18px, -58px) rotate(-8deg); }
+  80%  { transform: translate(8px,   -32px) rotate(3deg); }
+  100% { transform: translate(0px,   0px)  rotate(-5deg); }
+}
+
+@keyframes beePath3 {
+  0%   { transform: translate(0px,   0px)  rotate(0deg); }
+  25%  { transform: translate(14px, -42px) rotate(12deg); }
+  50%  { transform: translate(-4px, -72px) rotate(-7deg); }
+  75%  { transform: translate(-18px, -38px) rotate(5deg); }
+  100% { transform: translate(0px,   0px)  rotate(0deg); }
+}
+
+@keyframes beePath4 {
+  0%   { transform: translate(0px,  0px)  rotate(3deg); }
+  33%  { transform: translate(-16px,-50px) rotate(-6deg); }
+  66%  { transform: translate(20px, -30px) rotate(9deg); }
+  100% { transform: translate(0px,  0px)  rotate(3deg); }
+}
+
+/* Aleteo */
+@keyframes wingFlap {
+  0%, 100% { transform: scaleY(1);   opacity: 0.75; }
+  50%       { transform: scaleY(0.2); opacity: 0.9; }
+}
+
+/* Cuenta regresiva — número cambia */
+@keyframes digitPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ──────────────────────────────────────────
+   REVEAL ON SCROLL
+   ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ──────────────────────────────────────────
+   LAYOUT GLOBAL
+   ────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+.invitation-wrapper {
+  animation: invitationEnter 0.8s ease forwards;
+}
+
+/* Secciones: max-width centrado */
+.section-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ──────────────────────────────────────────
+   FONDO DECORATIVO: puntos tipo panal
+   ────────────────────────────────────────── */
+.honeycomb-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(212, 160, 23, 0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* ──────────────────────────────────────────
+   ACCESIBILIDAD
+   ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ──────────────────────────────────────────
+   FOCUS VISIBLE GLOBAL
+   ────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
