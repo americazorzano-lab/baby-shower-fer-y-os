@@ -291,6 +291,71 @@ h1, h2, h3, h4 {
 }
 
 /* ──────────────────────────────────────────
+   REVELACIÓN DE SEXO — huevo, suspenso, confeti
+   ────────────────────────────────────────── */
+
+/* El huevo tiembla cada vez más fuerte durante el suspenso */
+@keyframes eggWobble {
+  0%, 100% { transform: rotate(0deg)   scale(1); }
+  20%       { transform: rotate(-4deg)  scale(1.02); }
+  40%       { transform: rotate(4deg)   scale(1.03); }
+  60%       { transform: rotate(-3deg)  scale(1.02); }
+  80%       { transform: rotate(3deg)   scale(1.03); }
+}
+
+/* Latido de expectativa del huevo sellado */
+@keyframes eggHeartbeat {
+  0%, 100% { transform: scale(1); }
+  25%       { transform: scale(1.045); }
+  40%       { transform: scale(1); }
+  55%       { transform: scale(1.03); }
+}
+
+/* Halo dorado que crece al acercarse la revelación */
+@keyframes revealGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(1.12); }
+}
+
+/* Cada número de la cuenta regresiva entra y sale */
+@keyframes countdownBeat {
+  0%   { opacity: 0; transform: scale(2.2); }
+  25%  { opacity: 1; transform: scale(1); }
+  75%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+/* Grietas que aparecen en el cascarón */
+@keyframes crackReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Destello blanco en el instante de la revelación */
+@keyframes flashOut {
+  0%   { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+/* Confeti cayendo */
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(85vh) rotate(720deg);
+  }
+}
+
+/* El video entra con un zoom suave */
+@keyframes videoEnter {
+  0%   { opacity: 0; transform: scale(0.88); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ──────────────────────────────────────────
    REVEAL ON SCROLL
    ────────────────────────────────────────── */
 .reveal {

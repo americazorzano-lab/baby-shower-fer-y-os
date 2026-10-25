@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { config } from './config'
 import Cover           from './components/Cover'
 import WelcomeMessage  from './components/WelcomeMessage'
+import GenderReveal    from './components/GenderReveal'
 import EventDetails    from './components/EventDetails'
 import Countdown       from './components/Countdown'
 import LocationSection from './components/LocationSection'
@@ -98,6 +99,7 @@ export default function App() {
       {isOpen && (
         <div className="invitation-wrapper">
           <WelcomeMessage />
+          <GenderReveal />
           <EventDetails />
           <Countdown />
           <LocationSection />

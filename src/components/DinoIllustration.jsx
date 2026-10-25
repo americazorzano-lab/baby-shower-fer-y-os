@@ -9,10 +9,9 @@ const DinoIllustration = ({ size = 220 }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     width={size}
-    height="auto"
     role="img"
     aria-label="Dinosaurio bebé saliendo de un huevo roto, con ojos grandes y expresivos"
-    style={{ display: 'block' }}
+    style={{ display: 'block', height: 'auto' }}
   >
     {/* ── Sombra en el suelo ── */}
     <ellipse cx="110" cy="262" rx="76" ry="8" fill="#B09870" opacity="0.20" />

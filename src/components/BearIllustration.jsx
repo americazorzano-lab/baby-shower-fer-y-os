@@ -8,10 +8,9 @@ const BearIllustration = ({ size = 220 }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     width={size}
-    height="auto"
     role="img"
     aria-label="Osito de peluche amarillo con una playera roja sosteniendo un tarro de miel"
-    style={{ display: 'block' }}
+    style={{ display: 'block', height: 'auto' }}
   >
     {/* ── Orejas ── */}
     <circle cx="54"  cy="62" r="28" fill="#E8B94A" />

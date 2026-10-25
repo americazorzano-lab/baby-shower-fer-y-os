@@ -46,6 +46,15 @@ export const config = {
   giftRegistryStore: 'Amazon México', // ✏️
 
   // ─────────────────────────────────────────
+  // 🥚  REVELACIÓN DE SEXO
+  // ─────────────────────────────────────────
+  // El video es la sorpresa, así que la página NO dice el sexo por su cuenta.
+  // Deja `revealedSex` en null para que el mensaje final sea neutral.
+  // Si quieres que la página celebre con un texto y color concretos *después*
+  // de que termine el video, cámbialo a 'niño' o 'niña'. ✏️
+  revealedSex: null,
+
+  // ─────────────────────────────────────────
   // 💬  MENSAJE DE BIENVENIDA
   // ─────────────────────────────────────────
   welcomeMessage:
