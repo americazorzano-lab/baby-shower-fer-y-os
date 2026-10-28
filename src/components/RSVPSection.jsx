@@ -4,8 +4,7 @@ import { config, getWhatsAppUrl } from '../config'
 /* ── Campos del formulario RSVP (solo visuales, se envían por WhatsApp) ── */
 const rsvpFields = [
   { icon: '👤', label: 'Tu nombre completo' },
-  { icon: '👥', label: 'Total de invitados (incluyéndote)' },
-  { icon: '🍽️', label: '¿Restricciones alimentarias?' },
+  { icon: '👥', label: 'Total de acompañantes' },
   { icon: '💌', label: 'Mensaje especial para los papás' },
 ]
 

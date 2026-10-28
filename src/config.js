@@ -22,14 +22,20 @@ export const config = {
   // ─────────────────────────────────────────
   // 📍  LUGAR DEL EVENTO
   // ─────────────────────────────────────────
-  venue: 'Lugar de celebración',  // ✏️ Puedes actualizar el nombre del lugar
+  venue: 'Jardín',  // ✏️ Puedes actualizar el nombre del lugar
   address: 'Ver ubicación en el mapa', // ✏️ La dirección está en el pin de Google Maps
-  city: 'Ciudad de México, CDMX',
+  city: 'Cuautla, Morelos, México',
 
   // ─────────────────────────────────────────
   // 🗺️  GOOGLE MAPS
   // ─────────────────────────────────────────
-  googleMapsUrl: 'https://maps.app.goo.gl/e9LvvEtpGr39kPis7', // ✏️ URL proporcionada
+  googleMapsUrl: 'https://maps.app.goo.gl/UVw5nawBpKcMfiJT8?g_st=iw', // ✏️ URL proporcionada
+
+  // ─────────────────────────────────────────
+  // 👗  ESTILO DE VESTIMENTA
+  // ─────────────────────────────────────────
+  dressCode: 'Casual elegante',                      // ✏️
+  dressCodeNote: 'Es en jardín, te sugerimos calzado cómodo', // ✏️
 
   // ─────────────────────────────────────────
   // 📱  WHATSAPP PARA CONFIRMACIÓN
@@ -86,8 +92,7 @@ export const getWhatsAppUrl = () => {
 Confirmo mi asistencia a su Baby Shower 🥚
 
 👤 Mi nombre completo: 
-👥 Total de invitados (incluyéndome): 
-🍽️ ¿Restricciones alimentarias?: 
+👥 Total de acompañantes: 
 💌 Mensaje especial para los papás: 
 
 ¡Nos vemos el sábado 5 de diciembre! 🦖💚`

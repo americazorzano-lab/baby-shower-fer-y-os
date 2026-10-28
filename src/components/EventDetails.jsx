@@ -24,11 +24,19 @@ const ClockIcon = () => (
   </svg>
 )
 
-const HouseIcon = () => (
+/* Vestido con una hojita, para el estilo de vestimenta en jardín */
+const DressIcon = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-    <path d="M3 13 L14 3 L25 13 L25 26 L3 26 Z" fill="#F5E6A3" stroke="#D4A017" strokeWidth="2" strokeLinejoin="round"/>
-    <rect x="10" y="17" width="8" height="9" rx="2" fill="#D4A017"/>
-    <rect x="16" y="8" width="6" height="6" rx="1" fill="#F5E6A3" stroke="#D4A017" strokeWidth="1.5"/>
+    {/* Tirantes */}
+    <path d="M11 4 L9.5 8 M17 4 L18.5 8" stroke="#D4A017" strokeWidth="1.8" strokeLinecap="round"/>
+    {/* Corpiño */}
+    <path d="M9.5 8 L18.5 8 L17.5 14 L10.5 14 Z" fill="#F5E6A3" stroke="#D4A017" strokeWidth="1.8" strokeLinejoin="round"/>
+    {/* Falda acampanada */}
+    <path d="M10.5 14 L17.5 14 L22 25 L6 25 Z" fill="#F5E6A3" stroke="#D4A017" strokeWidth="1.8" strokeLinejoin="round"/>
+    {/* Cinturón */}
+    <path d="M10.5 14 L17.5 14" stroke="#D4A017" strokeWidth="2.4" strokeLinecap="round"/>
+    {/* Hojita decorativa */}
+    <path d="M19.5 20 C21.5 18.5 23 19 23.5 17.5 C22 17.5 20 18 19.5 20 Z" fill="#7FB069"/>
   </svg>
 )
 
@@ -45,7 +53,7 @@ const PinIcon = () => (
 )
 
 /* ── Tarjeta individual ── */
-const DetailCard = ({ icon: Icon, label, value, isVisible, delay = 0 }) => (
+const DetailCard = ({ icon: Icon, label, value, note, isVisible, delay = 0 }) => (
   <div
     style={{
       background: 'var(--white)',
@@ -103,6 +111,21 @@ const DetailCard = ({ icon: Icon, label, value, isVisible, delay = 0 }) => (
     >
       {value}
     </p>
+
+    {/* Nota opcional, en letra más pequeña */}
+    {note && (
+      <p
+        style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.74rem',
+          color: 'var(--brown-light)',
+          lineHeight: 1.4,
+          margin: 0,
+        }}
+      >
+        {note}
+      </p>
+    )}
   </div>
 )
 
@@ -120,12 +143,13 @@ const EventDetails = () => {
     >
       <div className="section-inner">
         {/* Encabezado con reveal */}
+        {/* El margen reemplaza el que aportaba el subtítulo que se quitó */}
         <div
           ref={ref}
           className={`reveal ${isVisible ? 'visible' : ''}`}
+          style={{ marginBottom: '28px' }}
         >
           <h2 className="section-title">Detalles del evento</h2>
-          <p className="section-subtitle">¡Reserva la fecha en tu corazón! 🗓️</p>
         </div>
 
         {/* Grid 2 × 2 — cada tarjeta tiene su propio delay */}
@@ -151,16 +175,28 @@ const EventDetails = () => {
             delay={0.2}
           />
           <DetailCard
-            icon={HouseIcon}
-            label="Lugar"
-            value={config.venue}
+            icon={DressIcon}
+            label="Vestimenta"
+            value={config.dressCode}
+            note={config.dressCodeNote}
             isVisible={isVisible}
             delay={0.3}
           />
+          {/* Cuando la dirección sigue siendo el texto de relleno, se muestra
+              solo la ciudad y se remite al mapa (igual que en LocationSection). */}
           <DetailCard
             icon={PinIcon}
             label="Dirección"
-            value={`${config.address}, ${config.city}`}
+            value={
+              config.address !== 'Ver ubicación en el mapa'
+                ? `${config.address}, ${config.city}`
+                : config.city
+            }
+            note={
+              config.address !== 'Ver ubicación en el mapa'
+                ? null
+                : 'Ve la ubicación exacta en el mapa'
+            }
             isVisible={isVisible}
             delay={0.4}
           />
